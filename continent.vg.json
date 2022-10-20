@@ -4,7 +4,7 @@
         {
             "width": 600,
             "height": 300,
-            "title": "Proportion of Deaths Caused by Air Pollution by Continent",
+            "title": "Proportion of Deaths Caused by PM2.5 by Continent",
             "data": {
                 "url": "https://raw.githubusercontent.com/YurrrW/visualization-2/main/share-deaths-air-pollution%EF%BC%88new.csv"
             },
