@@ -1,4 +1,8 @@
-var vg_1 = "map.vg.json";
-vegaEmbed("#bar_chart", vg_1).then(function(result) {
+var vg_1 = "combine.vg.json";
+vegaEmbed("#combine", vg_1).then(function(result) {
     // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+}).catch(console.error);
+
+var vg_2 = "continent.vg.json";
+vegaEmbed("#continent", vg_2).then(function(result) {
 }).catch(console.error);

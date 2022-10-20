@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,16 +9,58 @@
     <script src="https://cdn.jsdelivr.net/npm/vega@5.20.2"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.1.0"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.17.0"></script>
-    
+
     <!-- <script src="map.vg.json"></script> -->
     <script src="vega-lite-vis.js"></script>
 
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+
 </head>
+
 <body>
 
-    <h1>First vega-lite graph</h1>
+    <h1>Air Pollution Is Influencing Our Life</h1>
+    <h3>What is AIR POLLUTION?</h3>
+    <p id="introduction">Air pollution is contamination of the indoor or outdoor environment by any chemical, physical
+        or biological agent that modifies the natural characteristics of the atmosphere.
+    </p>
 
-    <div id="bar_chart">
-    </div>
+    <div id="combine"></div>
+    <p id="p3">According to the State of Global Air 2019 report, air pollution was the 5th highest mortality risk factor
+        in 2017 globally. One of the components of outdoor air pollution is PM2.5, particulate matter measuring less
+        than 2.5 micrometers in aerodynamic diameter (for context, one strand of human hair has an average diameter of
+        70 micrometers). These particles are capable of penetrating deep into the respiratory tract and causing severe
+        health damage.<br />
+
+        The World Health Organization’s (WHO) Air Quality Guideline states that long-term exposure for those living
+        above an annual average PM2.5 concentration of 10 μg/m3 (micrograms per cubic meter) are at higher risk of
+        cardiopulmonary and lung cancer mortality. Based on this criterion, in 2017, more than 90 percent of the world
+        population was exposed to unhealthy air (an annual average PM2.5 concentration above 10 μg/m3).
+    </p>
+
+    <div id="continent"></div>
+
+    
+    <p id="p4">WHO data show that almost all of the global population (99%) breathe air that exceeds WHO guideline
+        limits and contains high levels of pollutants, with low- and middle-income countries suffering from the highest
+        exposures.<br />
+        From smog hanging over cities to smoke inside the home, air pollution poses a major threat to health and
+        climate. Ambient (outdoor) air pollution in both cities and rural areas is causing fine particulate matter which
+        result in strokes, heart diseases, lung cancer, acute and chronic respiratory diseases.
+
+        Additionally, around 2.4 billion people are exposed to dangerous levels of household air pollution, while using
+        polluting open fires or simple stoves for cooking fuelled by kerosene, biomass (wood, animal dung and crop
+        waste) and coal. The combined effects of ambient air pollution and household air pollution is associated with 7
+        million premature deaths annually.
+    </p>
+    <p id="bottom">Data resource:https://www.kaggle.com/datasets/kweinmeister/pm25-global-air-pollution-20102017 and https://www.kaggle.com/datasets/pavan9065/air-pollution?resource=download&select=death-rates-from-air-pollution.csv</p>
+
+
+
 </body>
+
 </html>

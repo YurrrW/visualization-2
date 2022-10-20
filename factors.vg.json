@@ -1,0 +1,40 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "width": 800,
+    "height": 600,
+    "title": "Reasons",
+    "data": {
+      "url": "https://raw.githubusercontent.com/YurrrW/visualization-2/main/number-of-deaths-by-risk-factor.csv"
+    },
+    "repeat": {
+      "layer": [
+        "Unsafe water source",
+        "Unsafe sanitation",
+        "No access to handwashing facility",
+        "Household air pollution from solid fuels",
+        "Air pollution",
+        "Outdoor air pollution"
+      ]
+    },
+    
+    "spec": {
+      "mark": "circle",
+      "encoding": {
+        "x": {
+          "field": "Year",
+          "type": "quantitative",
+          "axis": {"domain": false, "grid": false, "ticks": false},
+          "scale": {"type": "log", "domain": [1990, 2017]}
+        },
+        "y": {
+          "field": {"repeat": "layer"},
+          "type": "quantitative",
+          "title": "Deaths"
+        },
+        "color": {"datum": {"repeat": "layer"}, "type": "nominal"},
+        "tooltip":[
+          {"field":"Entity","type": "nominal","title":"Country"}
+        ]
+      }
+    }
+  }

@@ -1,0 +1,157 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "vconcat": [
+        {
+            "title": "PM2.5 Global Air Pollution (2010-2017)",
+            "width": 900,
+            "height": 400,
+            "projection": {
+                "type": "equalEarth"
+            },
+            "data": {
+                "url": "https://raw.githubusercontent.com/JiazhouLiu/FIT3179/main/VegaLite/3_choropleth_map/js/ne_110m_admin_0_countries.topojson",
+                "format": {
+                    "type": "topojson",
+                    "feature": "ne_110m_admin_0_countries"
+                }
+            },
+            "transform": [
+                {
+                    "lookup": "properties.ADM0_A3",
+                    "from": {
+                        "data": {
+                            "url": "https://raw.githubusercontent.com/YurrrW/week9/main/PM2.5%20Global%20Air%20Pollution%202010-2017.csv"
+                        },
+                        "key": "Country Code",
+                        "fields": [
+                            "Avg",
+                            "Country Code"
+                        ]
+                    }
+                }
+            ],
+            "params": [
+                {
+                    "name": "click",
+                    "select": {
+                        "type": "point",
+                        "fields": [
+                            "Country Code"
+                        ]
+                    }
+                }
+            ],
+            "mark": {
+                "type": "geoshape",
+                "stroke": "white"
+            },
+            "encoding": {
+                "color": {
+                    "field": "Avg",
+                    "type": "quantitative",
+                    "scale": {
+                        "type": "threshold",
+                        "domain": [
+                            12,
+                            35,
+                            55
+                        ],
+                        "range": [
+                            "#b5df79",
+                            "#fde496",
+                            "#faa35e",
+                            "#d7392f"
+                        ]
+                    }
+                },
+                "tooltip": [
+                    {
+                        "field": "properties.NAME",
+                        "type": "nominal",
+                        "title": "Country"
+                    },
+                    {
+                        "field": "Avg",
+                        "type": "quantitative"
+                    }
+                ]
+            }
+        },
+        {
+            "width": 900,
+            "height": 300,
+            "title": "Data on Deaths Caused by Pollution",
+            "data": {
+                "url": "https://raw.githubusercontent.com/YurrrW/visualization-2/main/number-of-deaths-by-risk-factor.csv"
+            },
+            "repeat": {
+                "layer": [
+                    "Unsafe water source",
+                    "Unsafe sanitation",
+                    "No access to handwashing facility",
+                    "Household air pollution from solid fuels",
+                    "Air pollution",
+                    "Outdoor air pollution"
+                ]
+            },
+            "transform": [
+                {
+                    "calculate": "datum.Code",
+                    "as": "Country Code"
+                },
+                {
+                    "filter": {
+                        "param": "click"
+                    }
+                }
+            ],
+            "spec": {
+                "mark": {
+                    "type": "line",
+                    "point": true
+                },
+                "encoding": {
+                    "x": {
+                        "field": "Year",
+                        "type": "quantitative",
+                        "axis": {
+                            "domain": false,
+                            "grid": false,
+                            "ticks": false
+                        },
+                        "scale": {
+                            "type": "log",
+                            "domain": [
+                                1990,
+                                2017
+                            ]
+                        }
+                    },
+                    "y": {
+                        "field": {
+                            "repeat": "layer"
+                        },
+                        "type": "quantitative",
+                        "title": "Deaths"
+                    },
+                    "color": {
+                        "datum": {
+                            "repeat": "layer"
+                        },
+                        "type": "nominal"
+                    },
+                    "tooltip": [
+                        {
+                            "field": "Entity",
+                            "type": "nominal"
+                        },
+                        {
+                            "field":"Year",
+                            "type": "quantitative"
+                        }
+                    ]
+                }
+            }
+        }
+    ]
+}
