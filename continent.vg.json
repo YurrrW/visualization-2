@@ -28,7 +28,7 @@
                 "x": {
                     "field": "Year",
                     "type": "quantitative",
-                    "title":null,
+                    "title": null,
                     "axis": {
                         "domain": false,
                         "grid": false,
@@ -76,7 +76,9 @@
                             "#a65628"
                         ]
                     },
-                    "legend":{"orient": "left"}
+                    "legend": {
+                        "orient": "left"
+                    }
                 },
                 "tooltip": [
                     {
@@ -95,52 +97,92 @@
                 ]
             }
         },
-        { "title": "Average Proportion of Deaths Due to Air Pollution by Continent (1990-2017)",
-        "data": {
-            "url": "https://raw.githubusercontent.com/YurrrW/visualization-2/main/continent_rate.csv"
-        },
-        "width":300,
-        "height":300,
-        "mark": "bar",
-        "encoding": {
-            "x": {
-                "field": "Continent",
-                "type": "nominal",
-                "title":null
+        {
+            "title": "Average Proportion of Deaths Due to Air Pollution by Continent (1990-2017)",
+            "data": {
+                "url": "https://raw.githubusercontent.com/YurrrW/visualization-2/main/continent_rate.csv"
             },
-            "y": {
-                "field": "Rate",
-                "type": "quantitative",
-                "title":"Propotion"
-            },
-            "tooltip":[
-                {"field":"Continent","type": "nominal"},
-                {"field":"Rate","type": "quantitative","title":"Average Proption"}
-            ],
-            "color": {
-                "param": "click",
-                "field": "Continent",
-                "type": "nominal",
-                "scale": {
-                    "domain": [
-                        "North America",
-                        "Latin America",
-                        "Europe",
-                        "Africa",
-                        "Asia",
-                        "Oceania"
-                    ],
-                    "range": [
-                        "#e41a1c",
-                        "#984ea3",
-                        "#ff7f00",
-                        "#a6cee3",
-                        "#377eb8",
-                        "#a65628"
-                    ]
+            "width": 300,
+            "height": 300,
+            "encoding": {
+                "x": {
+                    "field": "Continent",
+                    "type": "nominal",
+                    "title": null
+                },
+                "y": {
+                    "field": "Rate",
+                    "type": "quantitative",
+                    "title": "Propotion"
                 }
-            }
+            },
+            "layer": [
+                {
+                    "mark": "bar",
+                    "encoding": {
+                        "tooltip": [
+                            {
+                                "field": "Continent",
+                                "type": "nominal"
+                            },
+                            {
+                                "field": "Rate",
+                                "type": "quantitative",
+                                "title": "Average Proption"
+                            }
+                        ],
+                        "color": {
+                            "param": "click",
+                            "field": "Continent",
+                            "type": "nominal",
+                            "scale": {
+                                "domain": [
+                                    "North America",
+                                    "Latin America",
+                                    "Europe",
+                                    "Africa",
+                                    "Asia",
+                                    "Oceania"
+                                ],
+                                "range": [
+                                    "#e41a1c",
+                                    "#984ea3",
+                                    "#ff7f00",
+                                    "#a6cee3",
+                                    "#377eb8",
+                                    "#a65628"
+                                ]
+                            }
+                        }
+                    }
+                },
+                {
+                    "mark": {
+                        "type": "text",
+                        "align": "right",
+                        "baseline": "middle",
+                        "dx": -12,
+                        "fontSize": 11.5,
+                        "fontStyle": "italic"
+                    },
+                    "encoding": {
+                        "text": {
+                            "field": "Continent",
+                            "type": "nominal"
+                        },
+                        "color": {
+                            "value": "black"
+                        },
+                        "opacity": {
+                            "condition": {
+                                "test": "datum['Continent'] == 'Oceania' ||  datum['Continent'] == 'North America'",
+                                "value": 1
+                            },
+                            "value": 0
+                        }
+                    }
+                }
+            ]
         }
-    }
     ]
 }
