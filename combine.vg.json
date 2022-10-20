@@ -146,7 +146,31 @@
                             "type": "nominal"
                         },
                         {
-                            "field":"Year",
+                            "field": "Year",
+                            "type": "quantitative"
+                        },
+                        {
+                            "field": "Unsafe water source",
+                            "type": "quantitative"
+                        },
+                        {
+                            "field": "Unsafe sanitation",
+                            "type": "quantitative"
+                        },
+                        {
+                            "field": "No access to handwashing facility",
+                            "type": "quantitative"
+                        },
+                        {
+                            "field": "Household air pollution from solid fuels",
+                            "type": "quantitative"
+                        },
+                        {
+                            "field": "Air pollution",
+                            "type": "quantitative"
+                        },
+                        {
+                            "field": "Outdoor air pollution",
                             "type": "quantitative"
                         }
                     ]
